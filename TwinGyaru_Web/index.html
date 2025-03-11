@@ -36,6 +36,26 @@
         // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
         // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
       });
+
+      function resizeGame() {
+    var canvas = document.querySelector("canvas");
+    var aspectRatio = 16 / 9; // Unityプロジェクトの縦横比に合わせる
+
+    var width = window.innerWidth;
+    var height = width / aspectRatio;
+
+    if (height > window.innerHeight) {
+        height = window.innerHeight;
+        width = height * aspectRatio;
+    }
+
+    canvas.style.width = width + "px";
+    canvas.style.height = height + "px";
+}
+
+window.addEventListener("resize", resizeGame);
+window.addEventListener("load", resizeGame);
+      
     </script>
   </body>
 </html>
